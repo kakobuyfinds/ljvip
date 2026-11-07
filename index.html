@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#253e39">
+  <meta name="color-scheme" content="light">
+  <title>SuperBuy spreadsheet: kleding, sneakers en keuzehulp | cafans</title>
+  <meta name="description" content="Gebruik deze SuperBuy spreadsheet-gids om sneakers, kleding en accessoires te vergelijken. Met categorieën, maattips, een QC-checklist en heldere antwoorden.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="SuperBuy spreadsheet — van eerste vondst naar bewuste keuze">
+  <meta property="og:description" content="Een Nederlandstalige gids voor productlinks, maten, materiaal, controlefoto’s en het vergelijken van je totale bestelling.">
+  <meta property="og:site_name" content="cafans">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Rode Nike sneaker op een rode achtergrond">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SuperBuy spreadsheet | Vind je stijl, controleer de details">
+  <meta name="twitter:description" content="Ontdek categorieën en lees praktische uitleg over maten, productfoto’s en je shortlist.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <link rel="icon" href="https://www.cafans.com/favicon.ico">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+  <style>
+    :root {
+      --paper: #f6f3eb;
+      --white: #fffef9;
+      --ink: #20352f;
+      --muted: #56665f;
+      --green: #253e39;
+      --lime: #e2ed96;
+      --line: #d8ddd1;
+      --soft: #e9ede3;
+      --rust: #a54830;
+      --radius: 18px;
+      --width: 1192px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--rust);
+      outline-offset: 5px;
+    }
+    img { display: block; width: 100%; height: auto; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.14; text-wrap: balance; }
+    h1 { font-size: clamp(2.5rem, 5.2vw, 4.7rem); letter-spacing: -.055em; }
+    h2 { font-size: clamp(1.85rem, 3.5vw, 2.8rem); letter-spacing: -.035em; }
+    h3 { font-size: 1.25rem; letter-spacing: -.02em; }
+    p + p { margin-top: 14px; }
+    .wrap { width: min(var(--width), calc(100% - 40px)); margin-inline: auto; }
+    .topline {
+      background: var(--green);
+      color: var(--white);
+      padding: 9px 20px;
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .06em;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 23px;
+    }
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 850;
+      letter-spacing: -.055em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand span { color: var(--rust); }
+    .header-note { font-size: .83rem; color: var(--muted); text-align: right; }
+    .category-panel {
+      padding: 18px 20px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .category-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .category-heading h2 { font-size: 1rem; letter-spacing: 0; }
+    .category-heading span { color: var(--muted); font-size: .8rem; }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .categories a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 47px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 650;
+      font-size: .81rem;
+      overflow-wrap: anywhere;
+    }
+    .categories a::after { content: "↗"; color: var(--rust); flex-shrink: 0; }
+    .categories a:hover { background: var(--soft); border-color: var(--green); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 50px;
+      align-items: center;
+      padding-block: 56px;
+    }
+    .eyebrow {
+      display: block;
+      color: var(--muted);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { display: block; color: var(--rust); }
+    .intro { color: var(--muted); font-size: 1.08rem; margin-top: 23px; max-width: 56ch; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 27px; }
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      padding: 13px 19px;
+      background: var(--green);
+      color: var(--white);
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 750;
+    }
+    .button:hover { background: #36564d; }
+    .text-link { font-weight: 700; font-size: .9rem; }
+    .small { font-size: .79rem; color: var(--muted); }
+    .hero .small { margin-top: 16px; }
+    .hero-visual { position: relative; }
+    .hero-visual img {
+      aspect-ratio: 1 / 1.08;
+      object-fit: cover;
+      border-radius: 110px 18px 18px 18px;
+      background: #d23c32;
+    }
+    .visual-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      padding: 14px 17px;
+      border-radius: 9px;
+      background: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: .83rem;
+    }
+    .visual-label strong { display: block; }
+    .answer {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 30px;
+      padding: 30px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: var(--radius);
+    }
+    .answer h2 { font-size: 1.5rem; }
+    .answer p { max-width: 78ch; color: #e1e7df; }
+    .answer strong { color: var(--lime); }
+    .section { padding-block: 62px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+    .section-head p { color: var(--muted); max-width: 40ch; font-size: .95rem; }
+    .editorial {
+      display: grid;
+      grid-template-columns: .9fr .9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .image-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .image-card img { height: 305px; object-fit: cover; background: var(--soft); }
+    .card-copy { padding: 23px; }
+    .card-copy .eyebrow { margin-bottom: 9px; font-size: .65rem; }
+    .card-copy p { font-size: .91rem; color: var(--muted); margin-top: 12px; }
+    .card-copy a { display: inline-block; margin-top: 17px; font-weight: 750; font-size: .86rem; }
+    .notes { padding: 27px; border-radius: var(--radius); background: var(--soft); }
+    .notes h3 { font-size: 1.6rem; }
+    .notes ol { padding-left: 21px; margin: 22px 0 0; }
+    .notes li { padding-left: 6px; margin-top: 18px; font-size: .93rem; }
+    .notes li::marker { font-weight: 800; color: var(--rust); }
+    .notes li strong { display: block; }
+    .notes li span { color: var(--muted); }
+    .caption { margin-top: 13px; }
+    .guides { padding: 44px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
+    .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 30px; }
+    .guide-grid article { border-top: 3px solid var(--green); padding-top: 20px; }
+    .guide-grid .number { color: var(--rust); font-size: .77rem; font-weight: 800; display: block; margin-bottom: 14px; }
+    .guide-grid p { font-size: .93rem; color: var(--muted); margin-top: 14px; }
+    .guide-grid ul { margin: 15px 0 0; padding-left: 19px; font-size: .88rem; }
+    .guide-grid li { margin-top: 8px; }
+    .comparison { margin-top: 34px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .89rem; }
+    caption { text-align: left; font-weight: 750; margin-bottom: 12px; }
+    th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    thead th { background: var(--soft); }
+    tbody th { width: 23%; }
+    .topic-band { padding: 34px; background: var(--lime); border-radius: var(--radius); margin-top: 32px; }
+    .topic-band h3 { max-width: 34ch; font-size: 1.6rem; }
+    .topic-band p { max-width: 86ch; margin-top: 14px; }
+    .faq-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 55px; }
+    .faq-intro p { color: var(--muted); margin-top: 20px; }
+    details { border-bottom: 1px solid var(--line); padding: 19px 0; }
+    details:first-child { padding-top: 0; }
+    summary { cursor: pointer; font-weight: 750; line-height: 1.5; padding-right: 12px; }
+    details p { color: var(--muted); font-size: .94rem; margin-top: 13px; }
+    .endnote {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 30px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 38px;
+    }
+    .endnote p { color: var(--muted); margin-top: 8px; }
+    footer { padding-bottom: 30px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 25px; margin-bottom: 18px; }
+    footer p { max-width: 100ch; font-size: .79rem; color: var(--muted); }
+    @media (min-width: 900px) {
+      .image-card:nth-child(2) { margin-top: 42px; }
+    }
+    @media (max-width: 950px) {
+      .categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero { gap: 28px; }
+      .editorial { grid-template-columns: 1fr 1fr; }
+      .notes { grid-column: 1 / -1; }
+      .notes ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+      .notes li { margin-top: 0; }
+      .guide-grid { gap: 20px; }
+      .guides { padding: 28px; }
+      .faq-layout { gap: 30px; }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(var(--width), calc(100% - 28px)); }
+      .topline { font-size: .67rem; letter-spacing: .025em; }
+      .header { padding-block: 18px; }
+      .header-note { max-width: 140px; font-size: .71rem; }
+      .category-panel { padding: 15px; }
+      .category-heading span { display: none; }
+      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+      .categories a { font-size: .75rem; padding: 9px; }
+      .hero { grid-template-columns: 1fr; padding-block: 35px; gap: 28px; }
+      .hero-visual img { aspect-ratio: 1.3 / 1; border-radius: 65px 15px 15px 15px; }
+      .answer { grid-template-columns: 1fr; gap: 15px; padding: 25px; }
+      .section { padding-block: 40px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 17px; }
+      .editorial { gap: 14px; }
+      .image-card img { height: 205px; }
+      .card-copy { padding: 17px; }
+      .card-copy h3 { font-size: 1.13rem; }
+      .card-copy p { font-size: .84rem; }
+      .notes { padding: 23px; }
+      .notes ol { display: block; }
+      .notes li { margin-top: 18px; }
+      .guide-grid, .faq-layout { grid-template-columns: 1fr; }
+      .guide-grid { gap: 28px; }
+      .guides { padding: 23px 18px; }
+      .topic-band { padding: 25px; }
+      th, td { padding: 12px 10px; min-width: 130px; }
+      .endnote { display: block; padding: 25px 0; }
+      .endnote .button { margin-top: 20px; }
+      .footer-row { align-items: center; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .button, .categories a { transition: background-color .15s ease; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "#pagina",
+        "name": "SuperBuy spreadsheet: kleding, sneakers en keuzehulp",
+        "description": "Nederlandstalige oriëntatiegids voor productlinks, categorieën, maten en controlefoto’s.",
+        "inLanguage": "nl",
+        "about": {
+          "@type": "Thing",
+          "name": "SuperBuy spreadsheet",
+          "description": "Een geordend overzicht van productlinks waarmee je artikelen kunt verzamelen en vergelijken."
+        },
+        "hasPart": [
+          {"@id": "#artikel-maten"},
+          {"@id": "#artikel-qc"},
+          {"@id": "#artikel-kosten"},
+          {"@id": "#vragen"}
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-maten",
+        "headline": "Sneakers en kleding: begin bij de maat",
+        "description": "Vergelijk voetlengte en kledingafmetingen met de maattabel van de specifieke productvariant.",
+        "inLanguage": "nl",
+        "author": {"@type": "Organization", "name": "cafans"},
+        "articleBody": "Gebruik bij sneakers je voetlengte en de maattabel van het betreffende model. Vergelijk bij kleding borstbreedte, ruglengte en mouwlengte met een kledingstuk dat goed zit. Een algemene EU-maat of de aanduiding oversized vervangt de productafmetingen niet."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-qc",
+        "headline": "QC-foto’s lezen zonder te veel te veronderstellen",
+        "description": "Een praktische uitleg over zichtbare details, aanvullende foto’s en de beperkingen van beeldcontrole.",
+        "inLanguage": "nl",
+        "author": {"@type": "Organization", "name": "cafans"},
+        "articleBody": "Controleer of foto’s overeenkomen met de gekozen kleur en maat. Bekijk naden, vlekken, sluitingen en de inhoud van de verpakking. Vraag bij twijfel een detailfoto of meting aan als die mogelijkheid beschikbaar is. Foto’s bewijzen geen authenticiteit, levensduur of draagcomfort."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-kosten",
+        "headline": "Vergelijk de bestelling, niet alleen het artikel",
+        "description": "Neem productkosten, bezorging, eventuele diensten en internationale verzending op in je eigen vergelijking.",
+        "inLanguage": "nl",
+        "author": {"@type": "Organization", "name": "cafans"},
+        "articleBody": "Noteer de artikelprijs en de gekozen variant. Zet binnenlandse bezorging, eventuele servicekosten en internationale verzending apart. Controleer het actuele bedrag voor jouw bestemming en pakket. Een opgeslagen productprijs is geen vaste totaalprijs."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "#vragen",
+        "inLanguage": "nl",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wat is een SuperBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Een SuperBuy spreadsheet is een geordend overzicht van productlinks dat je helpt artikelen te verzamelen en vergelijken. Een vermelding bewijst geen voorraad, kwaliteit of authenticiteit. Deze pagina is een Nederlandstalige keuzehulp en biedt geen downloadbaar spreadsheetbestand."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Waar leiden de knoppen op deze pagina naartoe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "De categorieknoppen openen de bijbehorende categorie op cafans.com. De overige links openen de homepage van cafans.com. Je wordt via deze pagina niet rechtstreeks naar een SuperBuy-bestelscherm gestuurd."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe kies ik de juiste maat voor sneakers en hoodies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vergelijk je voetlengte of de afmetingen van een goed passend kledingstuk met de maattabel van de specifieke variant. Kijk bij hoodies naar borstbreedte, lengte en mouwen. Vertrouw niet uitsluitend op een algemene maatletter of EU-maat."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bewijzen QC-foto’s dat een merkartikel authentiek is?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. QC-foto’s kunnen zichtbare details en mogelijke gebreken laten zien, maar vormen geen bewijs van authenticiteit. Gebruik voor merkartikelen een verkoper met controleerbare herkomst en passende aankoopdocumentatie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is de artikelprijs ook de totaalprijs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dat kun je niet aannemen. Controleer naast de artikelprijs de binnenlandse bezorging, eventuele diensten, betaal- en wisselkosten en internationale verzending. Bekijk welke aanvullende bedragen voor jouw bestelling gelden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is deze gids officieel verbonden aan SuperBuy of de afgebeelde merken?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nee. Deze pagina is een onafhankelijke oriëntatiegids. De namen SuperBuy, Nike, Louis Vuitton en Gucci worden beschrijvend gebruikt. De foto’s zijn stijlimpressies en bevestigen geen voorraad of verkrijgbaarheid op cafans."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ljvip/">
+</head>
+<body>
+  <!-- index.html | Zelfstandige Nederlandstalige oriëntatiepagina.
+       Hoofdterm: SuperBuy spreadsheet.
+       Secundaire onderwerpen: SuperBuy productlinks; SuperBuy sneakers;
+       SuperBuy kleding; SuperBuy QC-foto’s; SuperBuy koopgids.
+       Onderzoeksthema’s: categorieën, productvergelijking, maattabellen,
+       controlefoto’s, bronlinks en een afzonderlijke kostenvergelijking.
+       Zoekresultaten verschillen per locatie en moment; er wordt geen
+       geverifieerde Google-top-10-positie of officiële relatie geclaimd. -->
+
+  <div class="topline">STIJL ONTDEKKEN · DETAILS VERGELIJKEN · BEWUST KIEZEN</div>
+
+  <header class="header wrap">
+    <a class="brand" href="https://www.cafans.com" aria-label="Naar de homepage van cafans.com">cafans<span>.com</span></a>
+    <p class="header-note">De garderobegids<br>Nederlandstalige editie</p>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <nav class="category-panel" aria-label="Productcategorieën op cafans">
+        <div class="category-heading">
+          <h2>Begin bij je categorie</h2>
+          <span>Rechtstreeks naar cafans ↗</span>
+        </div>
+        <div class="categories">
+          <a href="https://cafans.com/category-911-Shoes.html" lang="en">Shoes</a>
+          <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html" lang="en">Hoodies/Sweaters</a>
+          <a href="https://cafans.com/category-913-T-Shirts.html" lang="en">T-Shirts</a>
+          <a href="https://cafans.com/category-914-Jackets.html" lang="en">Jackets</a>
+          <a href="https://cafans.com/category-915-Pants%2FShorts.html" lang="en">Pants/Shorts</a>
+          <a href="https://cafans.com/category-916-Headwear.html" lang="en">Headwear</a>
+          <a href="https://cafans.com/category-917-Sets.html" lang="en">Sets</a>
+          <a href="https://cafans.com/category-918-underwear%2Funderpants.html" lang="en">Underwear/underpants</a>
+          <a href="https://cafans.com/category-919-Jersey.html" lang="en">Jersey</a>
+          <a href="https://cafans.com/category-920-Accessories.html" lang="en">Accessories</a>
+        </div>
+      </nav>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow">Een rustige blik op je volgende vondst</span>
+          <h1 id="hero-title">SuperBuy spreadsheet<span>Eerst de stijl.<br>Dan de details.</span></h1>
+          <p class="intro">Een goede selectie begint met weten wat je zoekt. Gebruik deze gids om sneakers, kleding en accessoires te ordenen, maten te vergelijken en de juiste vragen te stellen voordat je een keuze maakt.</p>
+          <div class="actions">
+            <a class="button" href="https://www.cafans.com">Ontdek cafans <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://cafans.com/category-911-Shoes.html">Begin met sneakers</a>
+          </div>
+          <p class="small">Onafhankelijke keuzehulp. Categorieën en doorverwijzingen openen cafans.</p>
+        </div>
+        <figure class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+            srcset="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=480&amp;q=75 480w, https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w"
+            sizes="(max-width: 650px) calc(100vw - 28px), 46vw"
+            width="800"
+            height="864"
+            alt="Rode Nike sneaker met witte swoosh op een rode achtergrond"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async">
+          <figcaption class="visual-label">
+            <span><strong>Een sportief vertrekpunt</strong>Kleur, silhouet en pasvorm</span>
+            <span aria-hidden="true">01 / STIJL</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="answer" aria-labelledby="definition-title">
+        <h2 id="definition-title">Wat bedoelen we met een spreadsheet?</h2>
+        <p>Een <strong>SuperBuy spreadsheet</strong> is een geordend overzicht van productlinks waarmee je artikelen kunt verzamelen en vergelijken. Het is een vertrekpunt voor onderzoek: controleer per artikel de variant, afmetingen en actuele informatie. Deze pagina biedt uitleg en categorielinks, geen downloadbaar spreadsheetbestand.</p>
+      </section>
+
+      <section class="section" aria-labelledby="style-title">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Het stijldossier</span>
+            <h2 id="style-title">Van sportief naar verfijnd.</h2>
+          </div>
+          <p>Gebruik een afbeelding om je richting te bepalen. Gebruik de productgegevens om je keuze te onderbouwen.</p>
+        </div>
+
+        <div class="editorial">
+          <figure class="image-card">
+            <img
+              src="https://images.unsplash.com/photo-1691480288782-142b953cf664?auto=format&amp;fit=crop&amp;w=560&amp;q=75"
+              width="560"
+              height="620"
+              alt="Bruine Louis Vuitton handtas met monogrampatroon tegen een lichte achtergrond"
+              loading="lazy"
+              decoding="async">
+            <figcaption class="card-copy">
+              <span class="eyebrow">Louis Vuitton · vorm en verhouding</span>
+              <h3>Een accessoire geeft richting</h3>
+              <p>Let bij een tas op breedte, hoogte en draagwijze. Bij een armband of ketting zijn lengte, sluiting en opgegeven materiaal de nuttigste vergelijkingspunten.</p>
+              <a href="https://cafans.com/category-920-Accessories.html">Bekijk accessoires ↗</a>
+            </figcaption>
+          </figure>
+
+          <figure class="image-card">
+            <img
+              src="https://images.unsplash.com/photo-1621310397228-c06ee011e079?auto=format&amp;fit=crop&amp;w=560&amp;q=75"
+              width="560"
+              height="620"
+              alt="Bruin-zwarte Gucci schoudertas die aan een deur hangt"
+              loading="lazy"
+              decoding="async">
+            <figcaption class="card-copy">
+              <span class="eyebrow">Gucci · patroon en textuur</span>
+              <h3>Kijk verder dan het logo</h3>
+              <p>Bekijk naden, voering en sluitingen van dichtbij. Een herkenbaar patroon vertelt op zichzelf niets over herkomst of materiaalkwaliteit.</p>
+              <a href="https://www.cafans.com">Verken de collectie op cafans ↗</a>
+            </figcaption>
+          </figure>
+
+          <aside class="notes" aria-labelledby="shortlist-title">
+            <span class="eyebrow">De korte selectie</span>
+            <h3 id="shortlist-title">Drie vragen vóór je verdergaat</h3>
+            <ol>
+              <li>
+                <strong>Past dit bij wat ik al draag?</strong>
+                <span>Vergelijk een sneakerkleur met je broeken en een hoodie met je favoriete jas.</span>
+              </li>
+              <li>
+                <strong>Welke gegevens ontbreken?</strong>
+                <span>Zoek een maattabel, materiaalomschrijving en foto van de gekozen uitvoering.</span>
+              </li>
+              <li>
+                <strong>Kan ik de keuze uitleggen?</strong>
+                <span>Noteer pasvorm, gebruik en totaalbudget. Zo houd je je shortlist overzichtelijk.</span>
+              </li>
+            </ol>
+          </aside>
+        </div>
+        <p class="small caption">Fotografie: Unsplash. De merkbeelden dienen als stijlimpressie en bevestigen geen voorraad, authenticiteit of verkrijgbaarheid op cafans.</p>
+      </section>
+
+      <section class="guides" aria-labelledby="guides-title">
+        <span class="eyebrow">De SuperBuy koopgids</span>
+        <h2 id="guides-title">Drie artikelen voor een betere vergelijking</h2>
+
+        <div class="guide-grid">
+          <article id="artikel-maten" aria-labelledby="sizes-title">
+            <span class="number">01 / MATEN &amp; PASVORM</span>
+            <h3 id="sizes-title">Sneakers en kleding: begin bij de maat</h3>
+            <p>Bij het vergelijken van SuperBuy sneakers is de modelnaam slechts het begin. Gebruik je voetlengte en de maattabel van het betreffende model. Een algemene EU-maat is minder bruikbaar dan de bijbehorende afmetingen.</p>
+            <p>Voor SuperBuy kleding vergelijk je borstbreedte, ruglengte en mouwlengte met een kledingstuk dat je goed past. De aanduiding ‘oversized’ vervangt die metingen niet.</p>
+            <ul>
+              <li>Sneakermaat vergelijken: meet beide voeten en volg de meetinstructie van de verkoper.</li>
+              <li>Hoodie maattabel lezen: controleer of de breedte plat gemeten is.</li>
+              <li>T-shirt lengte controleren: vergelijk dezelfde meetpunten.</li>
+              <li>Broek taille meten: let op omtrek, plat gemeten breedte en eventuele rek.</li>
+            </ul>
+          </article>
+
+          <article id="artikel-qc" aria-labelledby="qc-title">
+            <span class="number">02 / FOTO’S &amp; UITVOERING</span>
+            <h3 id="qc-title">QC-foto’s lezen zonder te veel te veronderstellen</h3>
+            <p>SuperBuy QC-foto’s worden vaak gezocht om een bestelling visueel te controleren. Kijk of de getoonde kleur en maat overeenkomen met je keuze en of alle onderdelen aanwezig zijn.</p>
+            <p>Controlefoto’s kunnen zichtbare gebreken tonen. Ze bewijzen geen authenticiteit, levensduur of draagcomfort. Vraag een detailfoto of meting aan als dat nodig én beschikbaar is.</p>
+            <ul>
+              <li>Productfoto’s vergelijken: bekijk dezelfde uitvoering en hoek.</li>
+              <li>Stiksels controleren: zoek naar losse draden en open naden.</li>
+              <li>Rits en sluiting bekijken: vraag een close-up bij onduidelijkheid.</li>
+              <li>Materiaalomschrijving lezen: onderscheid de samenstelling van een visuele indruk.</li>
+            </ul>
+          </article>
+
+          <article id="artikel-kosten" aria-labelledby="cost-title">
+            <span class="number">03 / LINKS &amp; KOSTEN</span>
+            <h3 id="cost-title">Vergelijk de bestelling, niet alleen het artikel</h3>
+            <p>Bewaar bij SuperBuy productlinks ook de gekozen variant, datum en artikelprijs. Een link zonder die gegevens maakt vergelijken lastig wanneer kleuren of maten een ander bedrag hebben.</p>
+            <p>Zet binnenlandse bezorging, eventuele servicekosten en internationale verzending apart. Controleer het actuele bedrag voor jouw bestemming en pakket. Een opgeslagen productprijs is geen vaste totaalprijs.</p>
+            <ul>
+              <li>Productlink controleren: klopt het artikel na het openen?</li>
+              <li>Verzendkosten vergelijken: gebruik dezelfde bestemming en pakketgegevens.</li>
+              <li>Pakketgewicht inschatten: onderscheid artikelgewicht en verpakt gewicht.</li>
+              <li>Totaalbudget bepalen: neem toepasselijke bijkomende kosten mee.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="comparison" role="region" aria-label="Vergelijkingspunten per categorie" tabindex="0">
+          <table>
+            <caption>Wat leg je vast in je eigen overzicht?</caption>
+            <thead>
+              <tr>
+                <th scope="col">Categorie</th>
+                <th scope="col">Belangrijkste gegevens</th>
+                <th scope="col">Nuttige controle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Sneakers</th>
+                <td>Model, kleurvariant, voetlengte en maatadvies</td>
+                <td>Lengte, zoolprofiel en de gekozen uitvoering</td>
+              </tr>
+              <tr>
+                <th scope="row">Hoodies en T-shirts</th>
+                <td>Borstbreedte, lengte, mouwen en samenstelling</td>
+                <td>Maattabel, naden en plaatsing van de opdruk</td>
+              </tr>
+              <tr>
+                <th scope="row">Jassen en sets</th>
+                <td>Laagjesruimte, schouderbreedte en losse onderdeelmetingen</td>
+                <td>Voering, sluiting en de maat van elk onderdeel</td>
+              </tr>
+              <tr>
+                <th scope="row">Hoofddeksels</th>
+                <td>Hoofdomtrek, diepte en verstelbaarheid</td>
+                <td>Sluiting, binnenrand en vorm</td>
+              </tr>
+              <tr>
+                <th scope="row">Sieraden en accessoires</th>
+                <td>Lengte, afmetingen, materiaal en onderhoudsinformatie</td>
+                <td>Sluiting, afwerking en controleerbare herkomst</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="topic-band" aria-labelledby="wardrobe-title">
+        <span class="eyebrow">Een garderobe die samenwerkt</span>
+        <h3 id="wardrobe-title">Denk in combinaties, niet in losse vondsten.</h3>
+        <p>Wil je een hoodie pasvorm vergelijken, begin dan bij de jas die je erover draagt. Voor een T-shirt onder een overshirt zijn de lengte en halsopening nuttig. Bij een broek binnenbeenlengte controleren helpt een goed passend exemplaar als referentie. Een pet maat kiezen begint bij je hoofdomtrek; bij een jersey pasvorm beoordelen kijk je ook naar bewegingsruimte.</p>
+        <p>Een set maten vergelijken vraagt om afzonderlijke maten voor boven- en onderstuk. Bij een accessoire afmetingen controleren helpt een liniaal meer dan een sfeerfoto. Voor een ketting lengte kiezen, armband sluiting controleren of sieraden materiaal vergelijken leg je de specificaties naast je eigen voorkeuren. Een kleine, duidelijk beschreven selectie is gemakkelijker te beoordelen.</p>
+      </aside>
+
+      <section class="section faq-layout" aria-labelledby="faq-title">
+        <div class="faq-intro">
+          <span class="eyebrow">Direct antwoord</span>
+          <h2 id="faq-title">Dit wil je vooraf weten.</h2>
+          <p>Heldere uitleg over de spreadsheet, de doorverwijzingen en de grenzen van wat een productfoto kan vertellen.</p>
+          <p class="small">Deze pagina neemt geen bestellingen of betalingen aan.</p>
+        </div>
+
+        <div id="vragen">
+          <details open>
+            <summary>Wat is een SuperBuy spreadsheet?</summary>
+            <p>Een SuperBuy spreadsheet is een geordend overzicht van productlinks dat je helpt artikelen te verzamelen en vergelijken. Een vermelding bewijst geen voorraad, kwaliteit of authenticiteit. Deze pagina is een Nederlandstalige keuzehulp en biedt geen downloadbaar spreadsheetbestand.</p>
+          </details>
+          <details>
+            <summary>Waar leiden de knoppen op deze pagina naartoe?</summary>
+            <p>De categorieknoppen openen de bijbehorende categorie op cafans.com. De overige links openen de homepage van cafans.com. Je wordt via deze pagina niet rechtstreeks naar een SuperBuy-bestelscherm gestuurd.</p>
+          </details>
+          <details>
+            <summary>Hoe kies ik de juiste maat voor sneakers en hoodies?</summary>
+            <p>Vergelijk je voetlengte of de afmetingen van een goed passend kledingstuk met de maattabel van de specifieke variant. Kijk bij hoodies naar borstbreedte, lengte en mouwen. Vertrouw niet uitsluitend op een algemene maatletter of EU-maat.</p>
+          </details>
+          <details>
+            <summary>Bewijzen QC-foto’s dat een merkartikel authentiek is?</summary>
+            <p>Nee. QC-foto’s kunnen zichtbare details en mogelijke gebreken laten zien, maar vormen geen bewijs van authenticiteit. Gebruik voor merkartikelen een verkoper met controleerbare herkomst en passende aankoopdocumentatie.</p>
+          </details>
+          <details>
+            <summary>Is de artikelprijs ook de totaalprijs?</summary>
+            <p>Dat kun je niet aannemen. Controleer naast de artikelprijs de binnenlandse bezorging, eventuele diensten, betaal- en wisselkosten en internationale verzending. Bekijk welke aanvullende bedragen voor jouw bestelling gelden.</p>
+          </details>
+          <details>
+            <summary>Is deze gids officieel verbonden aan SuperBuy of de afgebeelde merken?</summary>
+            <p>Nee. Deze pagina is een onafhankelijke oriëntatiegids. De namen SuperBuy, Nike, Louis Vuitton en Gucci worden beschrijvend gebruikt. De foto’s zijn stijlimpressies en bevestigen geen voorraad of verkrijgbaarheid op cafans.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="endnote" aria-labelledby="next-title">
+        <div>
+          <h3 id="next-title">Je volgende stap: een overzichtelijke shortlist.</h3>
+          <p>Kies een categorie, vergelijk de gegevens en bewaar alleen wat bij je past.</p>
+        </div>
+        <a class="button" href="https://www.cafans.com">Verder naar cafans <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <div class="footer-row">
+      <a class="brand" href="https://www.cafans.com">cafans<span>.com</span></a>
+      <span class="small">Nederlandstalige keuzehulp</span>
+    </div>
+    <p>Onafhankelijke informatie over het vergelijken van productlinks. Merknamen blijven eigendom van hun rechthebbenden. Afbeeldingen zijn illustratief. Controleer actuele productgegevens, herkomst, voorwaarden en beschikbaarheid bij de aanbieder voordat je bestelt.</p>
+  </footer>
+</body>
+</html>
